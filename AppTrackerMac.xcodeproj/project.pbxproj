@@ -15,6 +15,7 @@
 		F8A10B4828CC37EC00FC1007 /* AppTrackerMac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8A10B4628CC37EC00FC1007 /* AppTrackerMac.xcdatamodeld */; };
 		F8A10B5028CC3AE200FC1007 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A10B4F28CC3AE200FC1007 /* SearchView.swift */; };
 		F8A10B5328CC56F700FC1007 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A10B5228CC56F700FC1007 /* AppInfo.swift */; };
+		F8A10B5628CE34F600FC1007 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A10B5528CE34F600FC1007 /* SearchResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F8A10B4928CC37EC00FC1007 /* AppTrackerMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppTrackerMac.entitlements; sourceTree = "<group>"; };
 		F8A10B4F28CC3AE200FC1007 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		F8A10B5228CC56F700FC1007 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
+		F8A10B5528CE34F600FC1007 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +62,10 @@
 		F8A10B3A28CC37EA00FC1007 /* AppTrackerMac */ = {
 			isa = PBXGroup;
 			children = (
+				F8A10B5428CE34DF00FC1007 /* Views */,
 				F8A10B5128CC56EB00FC1007 /* Models */,
 				F8A10B3B28CC37EA00FC1007 /* AppTrackerMacApp.swift */,
 				F8A10B3D28CC37EA00FC1007 /* ContentView.swift */,
-				F8A10B4F28CC3AE200FC1007 /* SearchView.swift */,
 				F8A10B3F28CC37EC00FC1007 /* Assets.xcassets */,
 				F8A10B4428CC37EC00FC1007 /* Persistence.swift */,
 				F8A10B4928CC37EC00FC1007 /* AppTrackerMac.entitlements */,
@@ -87,6 +89,15 @@
 				F8A10B5228CC56F700FC1007 /* AppInfo.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F8A10B5428CE34DF00FC1007 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F8A10B4F28CC3AE200FC1007 /* SearchView.swift */,
+				F8A10B5528CE34F600FC1007 /* SearchResultView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8A10B5028CC3AE200FC1007 /* SearchView.swift in Sources */,
+				F8A10B5628CE34F600FC1007 /* SearchResultView.swift in Sources */,
 				F8A10B4828CC37EC00FC1007 /* AppTrackerMac.xcdatamodeld in Sources */,
 				F8A10B4528CC37EC00FC1007 /* Persistence.swift in Sources */,
 				F8A10B3E28CC37EA00FC1007 /* ContentView.swift in Sources */,

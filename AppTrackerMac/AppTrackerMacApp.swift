@@ -17,13 +17,5 @@ struct AppTrackerMacApp: App {
 //            ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
-        .commands {
-            CommandGroup(replacing: .textEditing) {
-                Button("Copy App Name") {
-                    print("before item")
-                }
-                .disabled(true)
-            }
-        }
     }
 }
