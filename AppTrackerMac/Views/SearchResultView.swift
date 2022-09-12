@@ -14,44 +14,56 @@ struct SearchResultView: View {
     @State private var sortOrder = [KeyPathComparator(\AppInfoElement.count)]
     
     var body: some View {
-        Table(selection: $selectedAppInfo, sortOrder: $sortOrder) {
-            TableColumn("App Name", value: \.appName) { appInfo in
-                Text(appInfo.appName)
-                    .contextMenu {
-                        Button("Copy app name") {
-                            NSPasteboard.general.clearContents()
-                            NSPasteboard.general.setString(appInfo.appName, forType: .string)
+        HSplitView {
+            Table(selection: $selectedAppInfo, sortOrder: $sortOrder) {
+                TableColumn("App Name", value: \.appName) { appInfo in
+                    Text(appInfo.appName)
+                        .contextMenu {
+                            Button("Copy app name") {
+                                NSPasteboard.general.clearContents()
+                                NSPasteboard.general.setString(appInfo.appName, forType: .string)
+                            }
                         }
-                    }
-            }
-            TableColumn("Package Name", value: \.packageName) { appInfo in
-                Text(appInfo.packageName)
-                    .contextMenu {
-                        Button("Copy package name") {                            NSPasteboard.general.clearContents()
-                            NSPasteboard.general.setString(appInfo.packageName, forType: .string)
+                }
+                TableColumn("Package Name", value: \.packageName) { appInfo in
+                    Text(appInfo.packageName)
+                        .contextMenu {
+                            Button("Copy package name") {
+                                NSPasteboard.general.clearContents()
+                                NSPasteboard.general.setString(appInfo.packageName, forType: .string)
+                            }
                         }
-                    }
-            }
-            TableColumn("Activity Name", value: \.activityName) { appInfo in
-                Text(appInfo.activityName)
-                    .contextMenu {
-                        Button("Copy activity name") {
-                            NSPasteboard.general.clearContents()
-                            NSPasteboard.general.setString(appInfo.activityName, forType: .string)
+                }
+                TableColumn("Activity Name", value: \.activityName) { appInfo in
+                    Text(appInfo.activityName)
+                        .contextMenu {
+                            Button("Copy activity name") {
+                                NSPasteboard.general.clearContents()
+                                NSPasteboard.general.setString(appInfo.activityName, forType: .string)
+                            }
                         }
-                    }
+                }
+                TableColumn("Count", value: \.count) {
+                    Text("\($0.count)")
+                }
+            } rows: {
+                ForEach(appInfoResponse.items) { item in
+                    TableRow(item)
+                        .itemProvider({ NSItemProvider(object: item.xml as NSString) })
+                }
             }
-            TableColumn("Count", value: \.count) {
-                Text("\($0.count)")
+            .onChange(of: sortOrder) {
+                appInfoResponse.items.sort(using: $0)
             }
-        } rows: {
-            ForEach(appInfoResponse.items) { item in
-                TableRow(item)
-                    .itemProvider({ NSItemProvider(object: item.xml as NSString) })
+            if let firstSelectedAppInfo = firstSelectedAppInfo {
+                AppInfoDetailView(appInfo: firstSelectedAppInfo)
             }
         }
-        .onChange(of: sortOrder) {
-            appInfoResponse.items.sort(using: $0)
+    }
+    
+    var firstSelectedAppInfo: AppInfoElement? {
+        appInfoResponse.items.first { appInfo in
+            appInfo.id == selectedAppInfo.first
         }
     }
 }

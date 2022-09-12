@@ -18,7 +18,7 @@ struct AppInfoResponse: Codable {
     static let empty = AppInfoResponse(metadata: .init(page: 1, per: 10, total: 0), items: [])
 }
 
-struct AppInfoElement: Codable, Identifiable {
+struct AppInfoElement: Codable, Identifiable, Equatable {
     let count: Int
     let signature, packageName, appName, activityName: String
     let id: String
@@ -30,4 +30,6 @@ struct AppInfoElement: Codable, Identifiable {
         
         """
     }
+    
+    static let example: AppInfoElement = .init(count: 1, signature: "", packageName: "com.example.app", appName: "Example App", activityName: "mainActivity", id: UUID().uuidString)
 }

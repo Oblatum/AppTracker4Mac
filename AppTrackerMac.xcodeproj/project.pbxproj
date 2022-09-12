@@ -16,6 +16,8 @@
 		F8A10B5028CC3AE200FC1007 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A10B4F28CC3AE200FC1007 /* SearchView.swift */; };
 		F8A10B5328CC56F700FC1007 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A10B5228CC56F700FC1007 /* AppInfo.swift */; };
 		F8A10B5628CE34F600FC1007 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A10B5528CE34F600FC1007 /* SearchResultView.swift */; };
+		F8FDA43B28CE37710059E419 /* AppInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FDA43A28CE37710059E419 /* AppInfoDetailView.swift */; };
+		F8FDA43D28CECE4B0059E419 /* GetImageUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FDA43C28CECE4B0059E419 /* GetImageUrlResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		F8A10B4F28CC3AE200FC1007 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		F8A10B5228CC56F700FC1007 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		F8A10B5528CE34F600FC1007 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
+		F8FDA43A28CE37710059E419 /* AppInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoDetailView.swift; sourceTree = "<group>"; };
+		F8FDA43C28CECE4B0059E419 /* GetImageUrlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageUrlResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				F8A10B5228CC56F700FC1007 /* AppInfo.swift */,
+				F8FDA43C28CECE4B0059E419 /* GetImageUrlResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -96,6 +101,7 @@
 			children = (
 				F8A10B4F28CC3AE200FC1007 /* SearchView.swift */,
 				F8A10B5528CE34F600FC1007 /* SearchResultView.swift */,
+				F8FDA43A28CE37710059E419 /* AppInfoDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +181,8 @@
 				F8A10B4828CC37EC00FC1007 /* AppTrackerMac.xcdatamodeld in Sources */,
 				F8A10B4528CC37EC00FC1007 /* Persistence.swift in Sources */,
 				F8A10B3E28CC37EA00FC1007 /* ContentView.swift in Sources */,
+				F8FDA43B28CE37710059E419 /* AppInfoDetailView.swift in Sources */,
+				F8FDA43D28CECE4B0059E419 /* GetImageUrlResponse.swift in Sources */,
 				F8A10B3C28CC37EA00FC1007 /* AppTrackerMacApp.swift in Sources */,
 				F8A10B5328CC56F700FC1007 /* AppInfo.swift in Sources */,
 			);
