@@ -23,6 +23,7 @@ struct SearchResultView: View {
                                 NSPasteboard.general.clearContents()
                                 NSPasteboard.general.setString(appInfo.appName, forType: .string)
                             }
+                            .keyboardShortcut("c", modifiers: .command)
                         }
                 }
                 TableColumn("Package Name", value: \.packageName) { appInfo in
@@ -32,6 +33,7 @@ struct SearchResultView: View {
                                 NSPasteboard.general.clearContents()
                                 NSPasteboard.general.setString(appInfo.packageName, forType: .string)
                             }
+                            .keyboardShortcut("c", modifiers: .command)
                         }
                 }
                 TableColumn("Activity Name", value: \.activityName) { appInfo in
@@ -41,6 +43,7 @@ struct SearchResultView: View {
                                 NSPasteboard.general.clearContents()
                                 NSPasteboard.general.setString(appInfo.activityName, forType: .string)
                             }
+                            .keyboardShortcut("c", modifiers: .command)
                         }
                 }
                 TableColumn("Count", value: \.count) {
@@ -55,19 +58,39 @@ struct SearchResultView: View {
             .onChange(of: sortOrder) {
                 appInfoResponse.items.sort(using: $0)
             }
-            if let firstSelectedAppInfo = firstSelectedAppInfo {
-                AppInfoDetailView(appInfo: firstSelectedAppInfo)
+            if selectedAppInfoList.isEmpty == false {
+                ScrollView {
+                    ForEach(selectedAppInfoList) {
+                        AppInfoDetailView(appInfo: $0)
+                    }
+                }
+            } else {
+                AppInfoDetailPlaceholderView()
             }
         }
     }
     
-    var firstSelectedAppInfo: AppInfoElement? {
-        appInfoResponse.items.first { appInfo in
-            appInfo.id == selectedAppInfo.first
+    var selectedAppInfoList: [AppInfoElement] {
+        return selectedAppInfo.compactMap { id in
+            appInfoResponse.items.first { $0.id == id }
         }
     }
 }
 
+struct AppInfoDetailPlaceholderView: View {
+    var body: some View {
+        VStack {
+            Spacer()
+            Text("Select an app")
+                .lineLimit(1)
+                .foregroundColor(.secondary)
+                .font(.largeTitle)
+            Spacer()
+        }
+        .padding()
+        .frame(width: 200)
+    }
+}
 
 struct SearchResultView_Previews: PreviewProvider {
     static var previews: some View {

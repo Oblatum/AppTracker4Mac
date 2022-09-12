@@ -23,18 +23,22 @@ struct AppInfoDetailView: View {
                     image
                         .resizable()
                         .scaledToFit()
-                        .frame(maxWidth: 200, maxHeight: 200)
                         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                         .padding()
+                        .contextMenu {
+                            Button("Save to...", action: saveIconTo)
+                                .keyboardShortcut("s", modifiers: .command)
+                        }
                 } placeholder: {
                     ProgressView()
-                        .frame(width: 200, height: 200)
                 }
+                .frame(idealWidth: 200, maxWidth: 200, idealHeight:200, maxHeight: 200)
             }
             .frame(maxHeight: 216)
             .padding()
             
             Text(appInfo.appName)
+                .textSelection(.enabled)
                 .font(.headline)
             Form {
                 Section {
@@ -46,12 +50,37 @@ struct AppInfoDetailView: View {
             .padding()
             Spacer()
         }
-        .task {
+        .onAppear {
             getImageUrl()
         }
         .onChange(of: appInfo, perform: { newValue in
             getImageUrl(packageName: newValue.packageName)
         })
+    }
+    
+    private func saveIconTo() {
+        guard let imageUrl = imageUrl, let url = showSavePanel() else { return }
+        Task {
+            do {
+                let (imageData, _) = try await URLSession.shared.data(from: imageUrl)
+                try imageData.write(to: url)
+            } catch {
+                debugPrint(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func showSavePanel() -> URL? {
+        let savePanel = NSSavePanel()
+        savePanel.allowedContentTypes = [.png]
+        savePanel.canCreateDirectories = true
+        savePanel.isExtensionHidden = false
+        savePanel.title = "Save app icon"
+        savePanel.message = "Choose a folder and a name to save the icon."
+        savePanel.nameFieldLabel = "Image file name:"
+    
+        let response = savePanel.runModal()
+        return response == .OK ? savePanel.url : nil
     }
     
     private func getImageUrl(packageName: String? = nil) {
