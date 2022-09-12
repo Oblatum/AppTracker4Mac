@@ -28,6 +28,8 @@ struct AppInfoDetailView: View {
                         .contextMenu {
                             Button("Save to...", action: saveIconTo)
                                 .keyboardShortcut("s", modifiers: .command)
+                            Button("Copy To Clipboard...", action: copyIcon)
+                                .keyboardShortcut("c", modifiers: .command)
                         }
                 } placeholder: {
                     ProgressView()
@@ -56,6 +58,19 @@ struct AppInfoDetailView: View {
         .onChange(of: appInfo, perform: { newValue in
             getImageUrl(packageName: newValue.packageName)
         })
+    }
+    
+    private func copyIcon() {
+        guard let imageUrl = imageUrl else { return }
+        Task {
+            do {
+                let (imageData, _) = try await URLSession.shared.data(from: imageUrl)
+                NSPasteboard.general.clearContents()
+                NSPasteboard.general.setData(imageData, forType: .png)
+            } catch {
+                debugPrint(error.localizedDescription)
+            }
+        }
     }
     
     private func saveIconTo() {
