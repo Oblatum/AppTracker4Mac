@@ -61,7 +61,7 @@ struct SearchResultView: View {
             if selectedAppInfoList.isEmpty == false {
                 ScrollView {
                     ForEach(selectedAppInfoList) {
-                        AppInfoDetailView(appInfo: $0)
+                        AppInfoDetailView(viewModel: .init(appInfo: $0))
                     }
                 }
             } else {

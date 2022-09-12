@@ -9,13 +9,13 @@ import SwiftUI
 
 @main
 struct AppTrackerMacApp: App {
-    let persistenceController = PersistenceController.shared
+//    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
             SearchView(appInfoResponse: .empty)
 //            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
