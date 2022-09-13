@@ -13,11 +13,13 @@ class AppInfoDetailViewModel: ObservableObject {
     @Published var imageLoading: Bool = true
     @Published var showAlert: Bool = false
     @Published var viewError: Error? = nil
+    @Published var userDefinedAppName: String
     
     var appInfo: AppInfoElement
     
     init(appInfo: AppInfoElement) {
         self.appInfo = appInfo
+        _userDefinedAppName = .init(initialValue: appInfo.appName)
     }
     
     func getImage() async {

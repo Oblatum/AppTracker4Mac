@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F83B65D328D0CFF5001C1CDA /* String+specialCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83B65D228D0CFF5001C1CDA /* String+specialCharacters.swift */; };
 		F8A10B3C28CC37EA00FC1007 /* AppTrackerMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A10B3B28CC37EA00FC1007 /* AppTrackerMacApp.swift */; };
 		F8A10B3E28CC37EA00FC1007 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A10B3D28CC37EA00FC1007 /* ContentView.swift */; };
 		F8A10B4028CC37EC00FC1007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8A10B3F28CC37EC00FC1007 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F83B65D228D0CFF5001C1CDA /* String+specialCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "String+specialCharacters.swift"; path = "../../../../../../Butanediol/Developer/Swift Projects/AppTrackerMac/AppTrackerMac/Extensions/String+specialCharacters.swift"; sourceTree = "<group>"; };
 		F8A10B3828CC37EA00FC1007 /* AppTrackerMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppTrackerMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A10B3B28CC37EA00FC1007 /* AppTrackerMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTrackerMacApp.swift; sourceTree = "<group>"; };
 		F8A10B3D28CC37EA00FC1007 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F83B65D128D0CFDD001C1CDA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F83B65D228D0CFF5001C1CDA /* String+specialCharacters.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F8A10B2F28CC37EA00FC1007 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +78,7 @@
 		F8A10B3A28CC37EA00FC1007 /* AppTrackerMac */ = {
 			isa = PBXGroup;
 			children = (
+				F83B65D128D0CFDD001C1CDA /* Extensions */,
 				F8D75C8828CF2531007B8EA2 /* ViewModels */,
 				F8A10B5428CE34DF00FC1007 /* Views */,
 				F8A10B5128CC56EB00FC1007 /* Models */,
@@ -195,6 +206,7 @@
 				F8D75C8A28CF254D007B8EA2 /* AppInfoDetailViewModel.swift in Sources */,
 				F8FDA43B28CE37710059E419 /* AppInfoDetailView.swift in Sources */,
 				F8FDA43D28CECE4B0059E419 /* GetImageUrlResponse.swift in Sources */,
+				F83B65D328D0CFF5001C1CDA /* String+specialCharacters.swift in Sources */,
 				F8A10B3C28CC37EA00FC1007 /* AppTrackerMacApp.swift in Sources */,
 				F8A10B5328CC56F700FC1007 /* AppInfo.swift in Sources */,
 			);

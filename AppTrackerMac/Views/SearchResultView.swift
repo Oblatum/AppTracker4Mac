@@ -52,7 +52,7 @@ struct SearchResultView: View {
             } rows: {
                 ForEach(appInfoResponse.items) { item in
                     TableRow(item)
-                        .itemProvider({ NSItemProvider(object: item.xml as NSString) })
+                        .itemProvider({ NSItemProvider(object: item.appfilter() as NSString) })
                 }
             }
             .onChange(of: sortOrder) {

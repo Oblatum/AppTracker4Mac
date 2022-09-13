@@ -55,9 +55,13 @@ struct AppInfoDetailView: View {
                 .font(.headline)
             Form {
                 Section {
+                    TextField("App Name", text: $viewModel.userDefinedAppName)
+                }
+                Section {
                     TextField("Package Name", text: .constant(viewModel.appInfo.packageName))
                     TextField("Activity Name", text: .constant(viewModel.appInfo.activityName))
-                    TextField("Appfilter.xml", text: .constant(viewModel.appInfo.xml))
+                    TextField("Appfilter.xml", text: .constant(viewModel.appInfo.appfilter(viewModel.userDefinedAppName)))
+                    TextField("Drawable.xml", text: .constant(viewModel.appInfo.drawable(viewModel.userDefinedAppName)))
                 }
             }
             .padding()

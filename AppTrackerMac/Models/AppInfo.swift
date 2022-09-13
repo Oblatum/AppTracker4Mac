@@ -23,10 +23,22 @@ struct AppInfoElement: Codable, Identifiable, Equatable {
     let signature, packageName, appName, activityName: String
     let id: String
     
-    var xml: String {
+    private func nomalizedSnakeCaseName(_ userDefinedAppName: String? = nil) -> String {
+        ((userDefinedAppName ?? appName).first?.isNumber == true ? "a" : .empty) + (userDefinedAppName ?? appName).replacingOccurrences(of: String.whitespace, with: String.underscore)
+            .lowercased()
+    }
+    
+    func appfilter(_ userDefinedAppName: String? = nil) -> String {
         """
-        <!-- \(appName) -->
-        <item component="ComponentInfo{\(packageName)/\(activityName)}" drawable="\(appName)" />
+        <!-- \(userDefinedAppName ?? appName) -->
+        <item component="ComponentInfo{\(packageName)/\(activityName)}" drawable="\(nomalizedSnakeCaseName(userDefinedAppName))" />
+        
+        """
+    }
+    
+    func drawable(_ userDefinedAppName: String? = nil) -> String {
+        """
+        <item drawable="\(nomalizedSnakeCaseName(userDefinedAppName))" />
         
         """
     }
