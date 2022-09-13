@@ -64,6 +64,7 @@ struct SearchResultView: View {
                         AppInfoDetailView(viewModel: .init(appInfo: $0))
                     }
                 }
+                .frame(minWidth: 300)
             } else {
                 AppInfoDetailPlaceholderView()
             }
