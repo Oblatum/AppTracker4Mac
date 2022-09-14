@@ -29,9 +29,9 @@
 
 /* Begin PBXFileReference section */
 		F83B65D928D0D6CF001C1CDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		F863309228D21A710049A39A /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugView.swift; path = "../../../../../../Butanediol/Developer/Swift Projects/AppTrackerMac/AppTrackerMac/Views/DebugView.swift"; sourceTree = "<group>"; };
-		F863309428D222E40049A39A /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreferenceView.swift; path = "../../../../../../Butanediol/Developer/Swift Projects/AppTrackerMac/AppTrackerMac/Views/PreferenceView.swift"; sourceTree = "<group>"; };
-		F863309628D227FC0049A39A /* URL+folderSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "URL+folderSize.swift"; path = "../../../../../../Butanediol/Developer/Swift Projects/AppTrackerMac/AppTrackerMac/Extensions/URL+folderSize.swift"; sourceTree = "<group>"; };
+		F863309228D21A710049A39A /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
+		F863309428D222E40049A39A /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
+		F863309628D227FC0049A39A /* URL+folderSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+folderSize.swift"; sourceTree = "<group>"; };
 		F8A10B3828CC37EA00FC1007 /* AppTrackerMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppTrackerMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A10B3B28CC37EA00FC1007 /* AppTrackerMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTrackerMacApp.swift; sourceTree = "<group>"; };
 		F8A10B3D28CC37EA00FC1007 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
