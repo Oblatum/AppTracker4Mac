@@ -26,8 +26,17 @@ struct AppTrackerMacApp: App {
         }
         .commands {
             CommandGroup(after: .appInfo) {
-                CheckForUpdatesView(updater: updaterController.updater)
+                CheckForUpdatesView(updater: updaterController.updater)               
             }
+            CommandGroup(after: .windowList) {
+                NavigationLink("Debug Tool") {
+                    DebugView()
+                }
+            }
+        }
+        
+        Settings {
+            PreferenceView()
         }
     }
 }

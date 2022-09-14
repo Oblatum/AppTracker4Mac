@@ -17,18 +17,50 @@ class AppInfoDetailViewModel: ObservableObject {
     
     var appInfo: AppInfoElement
     
+    var imageCacheUrl: URL {
+        FileManager.default.temporaryDirectory.appendingPathComponent("\(appInfo.packageName).png")
+    }
+    
     init(appInfo: AppInfoElement) {
         self.appInfo = appInfo
         _userDefinedAppName = .init(initialValue: appInfo.appName)
     }
     
-    func getImage() async {
+    private func getImageFromCache() throws -> Data? {
+        return try? Data(contentsOf: imageCacheUrl)
+    }
+    
+    private func getImageFromServer() async throws -> Data {
+        // Download Icon
         let url = URL(string: "https://apptracker-api.cn2.tiers.top/api/icon?appId=\(appInfo.packageName)")!
+        var (data, _) = try await URLSession.shared.data(from: url)
+        let imageUrlResponse = try JSONDecoder().decode(GetImageUrlResponse.self, from: data)
+        (data, _) = try await URLSession.shared.data(from: URL(string: imageUrlResponse.image)!)
+        
+        // Save Icon to Cache
+        try saveImageToCache(cacheImageData: data)
+        return data
+    }
+    
+    private func saveImageToCache(cacheImageData: Data) throws {
+        try cacheImageData.write(to: imageCacheUrl)
+    }
+    
+    func forceRefreshIcon() async {
         do {
-            var (data, _) = try await URLSession.shared.data(from: url)
-            let imageUrlResponse = try JSONDecoder().decode(GetImageUrlResponse.self, from: data)
-            (data, _) = try await URLSession.shared.data(from: URL(string: imageUrlResponse.image)!)
-            imageData = data
+            imageData = try await getImageFromServer()
+        } catch {
+            viewError = error
+        }
+    }
+    
+    func getImage() async {
+        do {
+            if let cacheData = try getImageFromCache() {
+                imageData = cacheData
+            } else {
+                imageData = try await getImageFromServer()
+            }
         } catch {
             viewError = error
         }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F83B65D828D0D378001C1CDA /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = F83B65D728D0D378001C1CDA /* Sparkle */; };
+		F863309328D21A710049A39A /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F863309228D21A710049A39A /* DebugView.swift */; };
+		F863309528D222E40049A39A /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F863309428D222E40049A39A /* PreferenceView.swift */; };
+		F863309728D227FC0049A39A /* URL+folderSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F863309628D227FC0049A39A /* URL+folderSize.swift */; };
 		F8A10B3C28CC37EA00FC1007 /* AppTrackerMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A10B3B28CC37EA00FC1007 /* AppTrackerMacApp.swift */; };
 		F8A10B3E28CC37EA00FC1007 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A10B3D28CC37EA00FC1007 /* ContentView.swift */; };
 		F8A10B4028CC37EC00FC1007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8A10B3F28CC37EC00FC1007 /* Assets.xcassets */; };
@@ -26,6 +29,9 @@
 
 /* Begin PBXFileReference section */
 		F83B65D928D0D6CF001C1CDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F863309228D21A710049A39A /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugView.swift; path = "../../../../../../Butanediol/Developer/Swift Projects/AppTrackerMac/AppTrackerMac/Views/DebugView.swift"; sourceTree = "<group>"; };
+		F863309428D222E40049A39A /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreferenceView.swift; path = "../../../../../../Butanediol/Developer/Swift Projects/AppTrackerMac/AppTrackerMac/Views/PreferenceView.swift"; sourceTree = "<group>"; };
+		F863309628D227FC0049A39A /* URL+folderSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "URL+folderSize.swift"; path = "../../../../../../Butanediol/Developer/Swift Projects/AppTrackerMac/AppTrackerMac/Extensions/URL+folderSize.swift"; sourceTree = "<group>"; };
 		F8A10B3828CC37EA00FC1007 /* AppTrackerMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppTrackerMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A10B3B28CC37EA00FC1007 /* AppTrackerMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTrackerMacApp.swift; sourceTree = "<group>"; };
 		F8A10B3D28CC37EA00FC1007 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				F8AF2C2D28D0E39E00DDD31E /* String+specialCharacters.swift */,
+				F863309628D227FC0049A39A /* URL+folderSize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -123,6 +130,8 @@
 				F8A10B5528CE34F600FC1007 /* SearchResultView.swift */,
 				F8FDA43A28CE37710059E419 /* AppInfoDetailView.swift */,
 				F8AF2C2F28D0E3BB00DDD31E /* CheckForUpdatesView.swift */,
+				F863309228D21A710049A39A /* DebugView.swift */,
+				F863309428D222E40049A39A /* PreferenceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -221,8 +230,11 @@
 				F8D75C8A28CF254D007B8EA2 /* AppInfoDetailViewModel.swift in Sources */,
 				F8FDA43B28CE37710059E419 /* AppInfoDetailView.swift in Sources */,
 				F8FDA43D28CECE4B0059E419 /* GetImageUrlResponse.swift in Sources */,
+				F863309328D21A710049A39A /* DebugView.swift in Sources */,
 				F8A10B3C28CC37EA00FC1007 /* AppTrackerMacApp.swift in Sources */,
 				F8A10B5328CC56F700FC1007 /* AppInfo.swift in Sources */,
+				F863309728D227FC0049A39A /* URL+folderSize.swift in Sources */,
+				F863309528D222E40049A39A /* PreferenceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,6 +30,8 @@ struct AppInfoDetailView: View {
                                     .keyboardShortcut("s", modifiers: .command)
                                 Button("Copy to Clipboard") { viewModel.copyIcon() }
                                     .keyboardShortcut("c", modifiers: .command)
+                                Button("Refresh Icon") { Task { await viewModel.forceRefreshIcon() }}
+                                    .keyboardShortcut("r", modifiers: .command)
                             }
                     } else if viewModel.imageLoading {
                         ProgressView()
