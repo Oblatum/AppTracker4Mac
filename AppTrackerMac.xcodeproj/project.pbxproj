@@ -25,6 +25,8 @@
 		F8D75C8A28CF254D007B8EA2 /* AppInfoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D75C8928CF254D007B8EA2 /* AppInfoDetailViewModel.swift */; };
 		F8FDA43B28CE37710059E419 /* AppInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FDA43A28CE37710059E419 /* AppInfoDetailView.swift */; };
 		F8FDA43D28CECE4B0059E419 /* GetImageUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FDA43C28CECE4B0059E419 /* GetImageUrlResponse.swift */; };
+		F8FE97CA28D36B7F00D7D025 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FE97C928D36B7F00D7D025 /* UploadView.swift */; };
+		F8FE97CD28D373A900D7D025 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = F8FE97CC28D373A900D7D025 /* ZIPFoundation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,7 @@
 		F8D75C8928CF254D007B8EA2 /* AppInfoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoDetailViewModel.swift; sourceTree = "<group>"; };
 		F8FDA43A28CE37710059E419 /* AppInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoDetailView.swift; sourceTree = "<group>"; };
 		F8FDA43C28CECE4B0059E419 /* GetImageUrlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageUrlResponse.swift; sourceTree = "<group>"; };
+		F8FE97C928D36B7F00D7D025 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F83B65D828D0D378001C1CDA /* Sparkle in Frameworks */,
+				F8FE97CD28D373A900D7D025 /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +136,7 @@
 				F8AF2C2F28D0E3BB00DDD31E /* CheckForUpdatesView.swift */,
 				F863309228D21A710049A39A /* DebugView.swift */,
 				F863309428D222E40049A39A /* PreferenceView.swift */,
+				F8FE97C928D36B7F00D7D025 /* UploadView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 			name = AppTrackerMac;
 			packageProductDependencies = (
 				F83B65D728D0D378001C1CDA /* Sparkle */,
+				F8FE97CC28D373A900D7D025 /* ZIPFoundation */,
 			);
 			productName = AppTrackerMac;
 			productReference = F8A10B3828CC37EA00FC1007 /* AppTrackerMac.app */;
@@ -193,6 +199,7 @@
 			mainGroup = F8A10B2F28CC37EA00FC1007;
 			packageReferences = (
 				F83B65D628D0D378001C1CDA /* XCRemoteSwiftPackageReference "Sparkle" */,
+				F8FE97CB28D373A900D7D025 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 			);
 			productRefGroup = F8A10B3928CC37EA00FC1007 /* Products */;
 			projectDirPath = "";
@@ -231,6 +238,7 @@
 				F8FDA43B28CE37710059E419 /* AppInfoDetailView.swift in Sources */,
 				F8FDA43D28CECE4B0059E419 /* GetImageUrlResponse.swift in Sources */,
 				F863309328D21A710049A39A /* DebugView.swift in Sources */,
+				F8FE97CA28D36B7F00D7D025 /* UploadView.swift in Sources */,
 				F8A10B3C28CC37EA00FC1007 /* AppTrackerMacApp.swift in Sources */,
 				F8A10B5328CC56F700FC1007 /* AppInfo.swift in Sources */,
 				F863309728D227FC0049A39A /* URL+folderSize.swift in Sources */,
@@ -444,6 +452,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		F8FE97CB28D373A900D7D025 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.9;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -451,6 +467,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F83B65D628D0D378001C1CDA /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
+		};
+		F8FE97CC28D373A900D7D025 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8FE97CB28D373A900D7D025 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
 		};
 /* End XCSwiftPackageProductDependency section */
 

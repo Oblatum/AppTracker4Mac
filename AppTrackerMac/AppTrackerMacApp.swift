@@ -32,6 +32,11 @@ struct AppTrackerMacApp: App {
                 NavigationLink("Debug Tool") {
                     DebugView()
                 }
+                
+                NavigationLink("Upload Tool") {
+                    UploadView()
+                }
+                .keyboardShortcut("u", modifiers: .command)
             }
         }
         
