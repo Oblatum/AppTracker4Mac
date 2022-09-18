@@ -10,26 +10,18 @@ import ZIPFoundation
 
 extension Archive {
     func extract(_ entry: Entry, bufferSize: Int = defaultReadChunkSize, skipCRC32: Bool = false,
-                 progress: Progress? = nil) async throws -> (Data, CRC32) {
-        try await withCheckedThrowingContinuation { continuation in
-            do {
-                let sema = DispatchSemaphore(value: 0)
-                var data: Data!
-                let crc32 = try extract(entry, bufferSize: bufferSize, skipCRC32: skipCRC32, progress: progress) {
-                    data = $0
-                    sema.signal()
-                }
-                sema.wait()
-                continuation.resume(returning: (data, crc32))
-            } catch {
-                continuation.resume(throwing: error)
+                 progress: Progress? = nil) async throws -> Data {
+        debugPrint(entry.path)
+        return try await withCheckedThrowingContinuation { continuation in
+            let _ = try! extract(entry, bufferSize: bufferSize, skipCRC32: skipCRC32, progress: progress) { data in
+                continuation.resume(returning: data)
             }
         }
     }
     
     func getEntry(by path: String) -> Entry? {
         self.first { entry in
-            entry.path == path || entry.path.lowercased() == path.lowercased()
+            entry.path == path || entry.path.lowercased() == path.lowercased() || "a_" + entry.path.lowercased() == path.lowercased()
         }
     }
 }

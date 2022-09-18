@@ -32,19 +32,22 @@ class UploadViewModel: ObservableObject {
             .compactMap { archive -> (Archive, Entry)? in
                 if let appfilterEntry = archive.first(where: { $0.path.hasPrefix("appfilter") && $0.path.hasSuffix(".xml") }) {
                     return (archive, appfilterEntry)
-                } else { return nil }
+                } else {
+                    debugPrint("Appfilter.xml Not Found!")
+                    return nil
+                }
             }
             .asyncMap { archive, entry -> (Archive, [AppInfoElement]) in
-                let appfilterData = try await archive.extract(entry)
-                let appfilterString = String(data: appfilterData.0, encoding: .utf8) ?? ""
+                let appfilterData = try await archive.extract(entry, bufferSize: 1000000)
+                let appfilterString = String(data: appfilterData, encoding: .utf8) ?? ""
                 return (archive, parseAppfilter(appfilterString))
             }
             .asyncForEach { archive, appInfoList in
                 try await appInfoList.asyncForEach(uploadAppInfo)
-                try await appInfoList.asyncForEach {
-                    guard let iconEntry = archive.getEntry(by: $0.appName + ".png") else { return }
-                    let (iconData, _) = try await archive.extract(iconEntry)
-                    try await uploadAppIcon(iconData, for: $0)
+                try await appInfoList.asyncForEach { appInfo in
+                    guard let iconEntry = archive.getEntry(by: appInfo.appName + ".png") else { return }
+                    let iconData = try await archive.extract(iconEntry, bufferSize: 1000000)
+                    try await uploadAppIcon(iconData, for: appInfo)
                 }
                 currentProgress += 1
             }
