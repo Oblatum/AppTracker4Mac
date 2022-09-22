@@ -27,7 +27,10 @@ class UploadViewModel: ObservableObject {
                 try await provider.loadObject(ofClass: URL.self)
             }
             .compactMap { url in
-                Archive(url: url, accessMode: .read)
+                return url.pathExtension == "zip" ? url : nil
+            }
+            .compactMap { url in
+                return Archive(url: url, accessMode: .read)
             }
             .compactMap { archive -> (Archive, Entry)? in
                 if let appfilterEntry = archive.first(where: { $0.path.hasPrefix("appfilter") && $0.path.hasSuffix(".xml") }) {
