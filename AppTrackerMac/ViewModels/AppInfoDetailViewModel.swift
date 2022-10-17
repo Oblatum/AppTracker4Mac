@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+var imageCacheDirUrl: URL {
+    FileManager.default.temporaryDirectory
+        .appendingPathComponent("me.butanediol.AppTrackerMac")
+}
+
 @MainActor
 class AppInfoDetailViewModel: ObservableObject {
     @Published var imageData: Data? = nil
@@ -18,7 +23,8 @@ class AppInfoDetailViewModel: ObservableObject {
     var appInfo: AppInfoElement
     
     var imageCacheUrl: URL {
-        FileManager.default.temporaryDirectory.appendingPathComponent("\(appInfo.packageName).png")
+        imageCacheDirUrl
+            .appendingPathComponent("\(appInfo.packageName).png")
     }
     
     init(appInfo: AppInfoElement) {
@@ -43,6 +49,10 @@ class AppInfoDetailViewModel: ObservableObject {
     }
     
     private func saveImageToCache(cacheImageData: Data) throws {
+        if !FileManager.default.fileExists(atPath: imageCacheDirUrl.path) {
+            print("Directory does not exist!")
+            try FileManager.default.createDirectory(at: imageCacheDirUrl, withIntermediateDirectories: false)
+        }
         try cacheImageData.write(to: imageCacheUrl)
     }
     

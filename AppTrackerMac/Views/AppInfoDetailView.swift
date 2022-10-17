@@ -55,15 +55,24 @@ struct AppInfoDetailView: View {
             Text(viewModel.appInfo.appName)
                 .textSelection(.enabled)
                 .font(.headline)
+            
             Form {
                 Section {
                     TextField("App Name", text: $viewModel.userDefinedAppName)
                 }
+                
                 Section {
                     TextField("Package Name", text: .constant(viewModel.appInfo.packageName))
                     TextField("Activity Name", text: .constant(viewModel.appInfo.activityName))
                     TextField("Appfilter.xml", text: .constant(viewModel.appInfo.appfilter(viewModel.userDefinedAppName)))
                     TextField("Drawable.xml", text: .constant(viewModel.appInfo.drawable(viewModel.userDefinedAppName)))
+                }
+                Section {
+                    HStack {
+                        Link(destination: viewModel.appInfo.playStoreUrl) {
+                            Label("Play Store", image: "play.store")
+                        }
+                    }
                 }
             }
             .padding()

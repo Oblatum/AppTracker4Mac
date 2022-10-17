@@ -18,12 +18,10 @@ struct DebugView: View {
         VStack {
             Text(displayText)
                 .font(.system(.body, design: .monospaced))
-            Button("Print Download Folder") {
+            Button("Print Cache Folder") {
                 do {
-                    let fileManager = FileManager.default
-                    let dir = fileManager.temporaryDirectory
-                    print("Home Directory: \(dir.path)")
-                    let homeDirContents = try fileManager.contentsOfDirectory(atPath: dir.path)
+                    print("Cache Dir: \(imageCacheDirUrl)")
+                    let homeDirContents = try FileManager.default.contentsOfDirectory(atPath: imageCacheDirUrl.path)
                     displayText = homeDirContents.joined(separator: "\n")
                 } catch {
                     potentialError = error

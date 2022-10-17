@@ -45,3 +45,22 @@ struct AppInfoElement: Codable, Identifiable, Equatable {
     
     static let example: AppInfoElement = .init(count: 1, signature: "", packageName: "com.example.app", appName: "Example App", activityName: "mainActivity", id: UUID().uuidString)
 }
+
+extension AppInfoElement {
+    static func propertyName(for keyPath: KeyPath<AppInfoElement, String>) -> String? {
+        switch keyPath {
+        case \.packageName:
+            return "package name"
+        case \.activityName:
+            return "activity name"
+        case \.appName:
+            return "app name"
+        default:
+            return nil
+        }
+    }
+    
+    var playStoreUrl: URL {
+        URL(string: "https://play.google.com/store/apps/details?id=\(packageName)")!
+    }
+}

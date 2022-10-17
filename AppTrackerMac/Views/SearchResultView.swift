@@ -19,31 +19,19 @@ struct SearchResultView: View {
                 TableColumn("App Name", value: \.appName) { appInfo in
                     Text(appInfo.appName)
                         .contextMenu {
-                            Button("Copy app name") {
-                                NSPasteboard.general.clearContents()
-                                NSPasteboard.general.setString(appInfo.appName, forType: .string)
-                            }
-                            .keyboardShortcut("c", modifiers: .command)
+                            makeButton(appInfo: appInfo, for: \.appName)
                         }
                 }
                 TableColumn("Package Name", value: \.packageName) { appInfo in
                     Text(appInfo.packageName)
                         .contextMenu {
-                            Button("Copy package name") {
-                                NSPasteboard.general.clearContents()
-                                NSPasteboard.general.setString(appInfo.packageName, forType: .string)
-                            }
-                            .keyboardShortcut("c", modifiers: .command)
+                            makeButton(appInfo: appInfo, for: \.packageName)
                         }
                 }
                 TableColumn("Activity Name", value: \.activityName) { appInfo in
                     Text(appInfo.activityName)
                         .contextMenu {
-                            Button("Copy activity name") {
-                                NSPasteboard.general.clearContents()
-                                NSPasteboard.general.setString(appInfo.activityName, forType: .string)
-                            }
-                            .keyboardShortcut("c", modifiers: .command)
+                            makeButton(appInfo: appInfo, for: \.activityName)
                         }
                 }
                 TableColumn("Count", value: \.count) {
@@ -64,11 +52,24 @@ struct SearchResultView: View {
                         AppInfoDetailView(viewModel: .init(appInfo: $0))
                     }
                 }
-                .frame(minWidth: 300)
+                .frame(minWidth: 300, idealWidth: 300)
             } else {
                 AppInfoDetailPlaceholderView()
             }
         }
+    }
+        
+    private func makeButton(appInfo: AppInfoElement, for keyPath: KeyPath<AppInfoElement, String>) -> some View {
+        let label = AppInfoElement.propertyName(for: keyPath) ?? .empty
+        return Button("Copy \(label)") {
+            copyAppInfo(appInfo: appInfo, for: keyPath)
+        }
+        .keyboardShortcut("c", modifiers: .command)
+    }
+    
+    private func copyAppInfo(appInfo: AppInfoElement, for keyPath: KeyPath<AppInfoElement, String>){
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(appInfo[keyPath: keyPath], forType: .string)
     }
     
     var selectedAppInfoList: [AppInfoElement] {

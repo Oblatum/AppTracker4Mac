@@ -47,12 +47,16 @@ struct GeneralSettingsView: View {
         }
     }
     
+    private var cacheFolderUrl: URL {
+        FileManager.default.temporaryDirectory.appendingPathComponent("me.butanediol.AppTrackerMac")
+    }
+    
     private func calculateCacheSize() {
-        cacheSize = "\(Double(FileManager.default.temporaryDirectory.folderSize()) / 1E6) MB"
+        cacheSize = "\(Double(imageCacheDirUrl.folderSize()) / 1E6) MB"
     }
     
     private func clearCache() {
-        let cacheFolder = FileManager.default.temporaryDirectory
+        let cacheFolder = imageCacheDirUrl
         do {
             try FileManager.default.contentsOfDirectory(at: cacheFolder, includingPropertiesForKeys: nil)
                 .forEach { url in
