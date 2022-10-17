@@ -11,6 +11,7 @@
 		F863309328D21A710049A39A /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F863309228D21A710049A39A /* DebugView.swift */; };
 		F863309528D222E40049A39A /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F863309428D222E40049A39A /* PreferenceView.swift */; };
 		F863309728D227FC0049A39A /* URL+folderSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F863309628D227FC0049A39A /* URL+folderSize.swift */; };
+		F870FC1F28FD2DEF00B9715D /* String+latin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F870FC1E28FD2DEF00B9715D /* String+latin.swift */; };
 		F8A10B3C28CC37EA00FC1007 /* AppTrackerMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A10B3B28CC37EA00FC1007 /* AppTrackerMacApp.swift */; };
 		F8A10B3E28CC37EA00FC1007 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A10B3D28CC37EA00FC1007 /* ContentView.swift */; };
 		F8A10B4028CC37EC00FC1007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8A10B3F28CC37EC00FC1007 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		F863309228D21A710049A39A /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		F863309428D222E40049A39A /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
 		F863309628D227FC0049A39A /* URL+folderSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+folderSize.swift"; sourceTree = "<group>"; };
+		F870FC1E28FD2DEF00B9715D /* String+latin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+latin.swift"; sourceTree = "<group>"; };
 		F8A10B3828CC37EA00FC1007 /* AppTrackerMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppTrackerMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A10B3B28CC37EA00FC1007 /* AppTrackerMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTrackerMacApp.swift; sourceTree = "<group>"; };
 		F8A10B3D28CC37EA00FC1007 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				F8B480F728D6BA9B005DA705 /* Sequence+async.swift */,
 				F8B480F928D6BAB8005DA705 /* Archive+extractAsync.swift */,
 				F8B480FB28D6BAD0005DA705 /* URL+appendingQueryParameters.swift */,
+				F870FC1E28FD2DEF00B9715D /* String+latin.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				F8B480F628D6BA7F005DA705 /* NSItemProvider+loadObjectAsync.swift in Sources */,
 				F8FDA43D28CECE4B0059E419 /* GetImageUrlResponse.swift in Sources */,
 				F863309328D21A710049A39A /* DebugView.swift in Sources */,
+				F870FC1F28FD2DEF00B9715D /* String+latin.swift in Sources */,
 				F8FE97CA28D36B7F00D7D025 /* UploadView.swift in Sources */,
 				F8A10B3C28CC37EA00FC1007 /* AppTrackerMacApp.swift in Sources */,
 				F8A10B5328CC56F700FC1007 /* AppInfo.swift in Sources */,
@@ -390,7 +394,7 @@
 				CODE_SIGN_ENTITLEMENTS = AppTrackerMac/AppTrackerMac.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"AppTrackerMac/Preview Content\"";
 				DEVELOPMENT_TEAM = 284Z84QH5Y;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -403,7 +407,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = me.butanediol.AppTrackerMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -419,7 +423,7 @@
 				CODE_SIGN_ENTITLEMENTS = AppTrackerMac/AppTrackerMac.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"AppTrackerMac/Preview Content\"";
 				DEVELOPMENT_TEAM = 284Z84QH5Y;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -432,7 +436,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = me.butanediol.AppTrackerMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

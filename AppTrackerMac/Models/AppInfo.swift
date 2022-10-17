@@ -31,14 +31,14 @@ struct AppInfoElement: Codable, Identifiable, Equatable {
     func appfilter(_ userDefinedAppName: String? = nil) -> String {
         """
         <!-- \(userDefinedAppName ?? appName) -->
-        <item component="ComponentInfo{\(packageName)/\(activityName)}" drawable="\(nomalizedSnakeCaseName(userDefinedAppName))" />
+        <item component="ComponentInfo{\(packageName)/\(activityName)}" drawable="\(nomalizedSnakeCaseName(userDefinedAppName?.latin ?? userDefinedAppName))" />
         
         """
     }
     
     func drawable(_ userDefinedAppName: String? = nil) -> String {
         """
-        <item drawable="\(nomalizedSnakeCaseName(userDefinedAppName))" />
+        <item drawable="\(nomalizedSnakeCaseName(userDefinedAppName?.latin ?? userDefinedAppName))" />
         
         """
     }
