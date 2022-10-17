@@ -52,9 +52,11 @@ struct SearchResultView: View {
                         AppInfoDetailView(viewModel: .init(appInfo: $0))
                     }
                 }
+                .background(VisualEffectView().ignoresSafeArea())
                 .frame(minWidth: 300, idealWidth: 300)
             } else {
                 AppInfoDetailPlaceholderView()
+                    .background(VisualEffectView().ignoresSafeArea())
             }
         }
     }
