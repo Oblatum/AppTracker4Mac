@@ -19,6 +19,7 @@ struct AppInfoDetailView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 12)
                     .foregroundColor(colorScheme == .light ? .white : .init(.displayP3, red: 0x1E/0xFF, green: 0x1E/0xFF, blue: 0x1E/0xFF))
+                    .opacity(0.5)
                 Group {
                     if let imageData = viewModel.imageData, let nsImage = NSImage(data: imageData) {
                         Image(nsImage: nsImage)
@@ -51,7 +52,7 @@ struct AppInfoDetailView: View {
             }
             .frame(maxHeight: 216)
             .padding()
-            
+                        
             Text(viewModel.appInfo.appName)
                 .textSelection(.enabled)
                 .font(.headline)
@@ -60,14 +61,16 @@ struct AppInfoDetailView: View {
                 Section {
                     TextField("App Name", text: $viewModel.userDefinedAppName)
                 }
-                
+                                
                 Section {
                     TextField("Package Name", text: .constant(viewModel.appInfo.packageName))
                     TextField("Activity Name", text: .constant(viewModel.appInfo.activityName))
                     TextField("Appfilter.xml", text: .constant(viewModel.appInfo.appfilter(viewModel.userDefinedAppName)))
                     TextField("Drawable.xml", text: .constant(viewModel.appInfo.drawable(viewModel.userDefinedAppName)))
                 }
-                Section {
+                .font(Font.body.monospaced())
+                
+                Section() {
                     HStack {
                         Link(destination: viewModel.appInfo.playStoreUrl) {
                             Label("Play Store", image: "play.store")

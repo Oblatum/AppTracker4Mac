@@ -24,21 +24,34 @@ struct AppInfoElement: Codable, Identifiable, Equatable {
     let id: String
     
     private func nomalizedSnakeCaseName(_ userDefinedAppName: String? = nil) -> String {
-        ((userDefinedAppName ?? appName).first?.isNumber == true ? "a" : .empty) + (userDefinedAppName ?? appName).replacingOccurrences(of: String.whitespace, with: String.underscore)
+        
+        var nomalizedName = userDefinedAppName ?? appName
+        
+        if nomalizedName.first?.isNumber == true {
+            nomalizedName = "a_" + nomalizedName
+        }
+        
+        nomalizedName = nomalizedName.latin ?? nomalizedName
+        
+        nomalizedName = nomalizedName.filter { $0.isASCII && ($0.isNumber || $0.isLetter || $0.isWhitespace || $0 == "_" )}
+        
+        return nomalizedName
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .replacingOccurrences(of: String.whitespace, with: String.underscore)
             .lowercased()
     }
     
     func appfilter(_ userDefinedAppName: String? = nil) -> String {
         """
-        <!-- \(userDefinedAppName ?? appName) -->
-        <item component="ComponentInfo{\(packageName)/\(activityName)}" drawable="\(nomalizedSnakeCaseName(userDefinedAppName?.latin ?? userDefinedAppName))" />
+        <!-- \((userDefinedAppName ?? appName).trimmingCharacters(in: .whitespacesAndNewlines)) -->
+        <item component="ComponentInfo{\(packageName)/\(activityName)}" drawable="\(nomalizedSnakeCaseName(userDefinedAppName))" />
         
         """
     }
     
     func drawable(_ userDefinedAppName: String? = nil) -> String {
         """
-        <item drawable="\(nomalizedSnakeCaseName(userDefinedAppName?.latin ?? userDefinedAppName))" />
+        <item drawable="\(nomalizedSnakeCaseName(userDefinedAppName))" />
         
         """
     }
